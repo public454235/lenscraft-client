@@ -7,24 +7,28 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      inter: ["Inter", "sans-serif"]
+    }
   },
   plugins: [daisyui],
   daisyui: {
     themes: [
       {
         light: {
-          primary: "#1977F2",
-          secondary: "#FF823F",
-          accent: "#FBBC1D",
+          primary: "#059dff ",
+          secondary: "#fb5343",
+          accent: "#6549d5",
           "base-100": "#FFFFFF",
-          "base-200": "#EAF7FB"
+          "base-200": "#EAF7FB",
+          "base-300": "#F5F8FA"
         }
       },
       {
         dark: {
-          primary: "#1977F2",
-          secondary: "#FF823F",
-          accent: "#FBBC1D",
+          primary: "#059dff ",
+          secondary: "#fb5343",
+          accent: "#6549d5",
           "base-100": "#060606",
           "base-200": "#000000"
         }

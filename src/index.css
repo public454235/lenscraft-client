@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  min-height: 100vh;
+  @apply min-h-screen font-inter;
 }
 
 .rn-gradient-circle {
@@ -16,4 +16,74 @@ body {
 .rn-gradient-circle.theme-pink {
   background-image: linear-gradient(45deg, #fb5343, #6549d5);
   @apply -top-64 -right-64 left-auto bottom-auto;
+}
+
+.gradient-bg {
+  background: linear-gradient(
+      95deg,
+      #059dff 15%,
+      #6549d5 45%,
+      #e33fa1 75%,
+      #fb5343
+    )
+    95%/200% 100%;
+}
+
+.gradient-text {
+  background: -webkit-gradient(
+      95deg,
+      #059dff 15%,
+      #6549d5 45%,
+      #e33fa1 75%,
+      #fb5343 100%
+    )
+    98%/200% 100%;
+  background: linear-gradient(
+      95deg,
+      #059dff 15%,
+      #6549d5 45%,
+      #e33fa1 75%,
+      #fb5343
+    )
+    98%/200% 100%;
+  @apply bg-clip-text text-transparent;
+}
+
+.menu a {
+  @apply font-medium hover:bg-inherit focus:bg-inherit duration-200;
+}
+
+.menu a:hover {
+  @apply text-primary;
+}
+
+.menu a.active {
+  @apply text-primary;
+}
+
+.btn-gradient {
+  background: linear-gradient(
+      95deg,
+      #059dff 15%,
+      #6549d5 45%,
+      #e33fa1 75%,
+      #fb5343
+    )
+    95%/200% 100%;
+  @apply text-white px-8;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(
+      95deg,
+      #059dff 15%,
+      #6549d5 45%,
+      #e33fa1 75%,
+      #fb5343
+    )
+    50%/200% 100%;
+}
+
+.container {
+  @apply mx-auto px-4 md:px-6 xl:px-8;
 }
