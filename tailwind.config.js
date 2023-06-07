@@ -19,6 +19,7 @@ export default {
           primary: "#059dff ",
           secondary: "#fb5343",
           accent: "#6549d5",
+          neutral: "#000000",
           "base-100": "#FFFFFF",
           "base-200": "#EAF7FB",
           "base-300": "#F5F8FA"
@@ -29,8 +30,9 @@ export default {
           primary: "#059dff ",
           secondary: "#fb5343",
           accent: "#6549d5",
+          neutral: "#FFFFFF",
           "base-100": "#060606",
-          "base-200": "#000000"
+          "base-200": "#0F0F11"
         }
       },
     ]

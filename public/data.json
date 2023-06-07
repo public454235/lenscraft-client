@@ -18,5 +18,100 @@
       "caption": "Join our community of photographers",
       "description": "Connect with fellow enthusiasts, share experiences, and grow together."
     }
+  ],
+  "popularClasses": [
+    {
+      "_id": "1",
+      "title": "Introduction to Photography",
+      "image": "https://i.ibb.co/mH4bgZy/introduction-to-photography-tips-for-beginners-2688546-hero-3617237b296e4832ad04bbf107f1f6b3.jpg",
+      "description": "Perfect for beginners, this class provides a solid foundation in photography fundamentals. Learn about camera settings, composition techniques, and how to capture stunning images.",
+      "numberOfStudents": 25
+    },
+    {
+      "_id": "2",
+      "title": "Advanced DSLR Techniques",
+      "image": "https://i.ibb.co/8Ph8P4m/Photography-Settings-Techniques-and-Rules.jpg",
+      "description": "Take your photography to the next level with this advanced class. Dive deeper into the intricacies of manual mode, master exposure, and explore advanced composition principles.",
+      "numberOfStudents": 15
+    },
+    {
+      "_id": "3",
+      "title": "Landscape Photography",
+      "image": "https://i.ibb.co/V33kQH3/Landscape-Photography-steps.jpg",
+      "description": "Discover the art of capturing breathtaking landscapes. Learn techniques for composition, capturing the perfect light, and creating stunning panoramic images.",
+      "numberOfStudents": 20
+    },
+    {
+      "_id": "4",
+      "title": "Portrait Photography",
+      "image": "https://i.ibb.co/kHkTk9d/1525891879-886386-sam-burriss-457746-unsplashjpg.jpg",
+      "description": "Unlock the secrets of capturing captivating portraits. From lighting and posing to working with models, this class will help you create stunning and expressive portraits.",
+      "numberOfStudents": 12
+    },
+    {
+      "_id": "5",
+      "title": "Street Photography",
+      "image": "https://i.ibb.co/HtgBhmM/new-york-streets-By-Dylan-Engels-2.jpg",
+      "description": "Develop your skills in capturing candid moments on the streets. Learn about different street photography styles, techniques for approaching subjects, and storytelling through images.",
+      "numberOfStudents": 18
+    },
+    {
+      "_id": "6",
+      "title": "Wildlife Photography",
+      "image": "https://i.ibb.co/rQ41Wnz/fox-family16.jpg",
+      "description": "Explore the wonders of wildlife through your lens. Learn about the equipment and techniques required to capture stunning images of animals in their natural habitats.",
+      "numberOfStudents": 10
+    },
+    {
+      "_id": "7",
+      "title": "Studio Lighting",
+      "image": "https://i.ibb.co/gFvXMvh/photography-lighting.jpg",
+      "description": "Delve into the world of studio photography and master the art of lighting. Learn about different lighting setups, equipment, and techniques to create professional-quality studio shots.",
+      "numberOfStudents": 8
+    }
+  ],
+  "popularInstructors": [
+    {
+      "_id": "1",
+      "name": "John Smith",
+      "specialty": "Landscape Photography",
+      "bio": "John Smith is a renowned landscape photographer with over 10 years of experience. His passion for capturing the beauty of nature has taken him to breathtaking locations around the world. Through his classes, John shares his knowledge of composition, lighting, and post-processing techniques to help students create stunning landscape photographs.",
+      "imageUrl": "https://i.ibb.co/n3H8P4V/handsome-cheerful-man-with-happy-smile-176420-18028.jpg"
+    },
+    {
+      "_id": "2",
+      "name": "Emily Johnson",
+      "specialty": "Portrait Photography",
+      "bio": "Emily Johnson is a professional portrait photographer known for her captivating and emotive portraits. With a keen eye for lighting and an ability to connect with her subjects, Emily brings out their unique personalities in her images. In her classes, she teaches students about lighting techniques, posing, and creating meaningful connections to capture compelling portraits.",
+      "imageUrl": "https://i.ibb.co/2qgSDbN/image.png"
+    },
+    {
+      "_id": "3",
+      "name": "Alex Ramirez",
+      "specialty": "Street Photography",
+      "bio": "Alex Ramirez is a talented street photographer who has an extraordinary ability to capture the essence of everyday life on the streets. With a keen eye for storytelling, Alex guides his students in honing their observation skills, composition techniques, and the art of capturing decisive moments. Through his classes, he encourages students to explore their surroundings and find unique perspectives in the urban landscape.",
+      "imageUrl": "https://i.ibb.co/FqP7W4j/avatar-hu8d30e29128cae2b0d49276543cea6665-24055-250x250-fill-q90-lanczos-center.jpg"
+    },
+    {
+      "_id": "4",
+      "name": "Sophia Lee",
+      "specialty": "Fine Art Photography",
+      "bio": "Sophia Lee is a fine art photographer known for her evocative and visually stunning images. She combines her technical expertise with a deep understanding of visual expression to create thought-provoking and artistic photographs. In her classes, Sophia guides students in exploring their own unique visual style and helps them express their creativity through fine art photography.",
+      "imageUrl": "https://i.ibb.co/D8RVt52/image.png"
+    },
+    {
+      "_id": "5",
+      "name": "David Chen",
+      "specialty": "Wildlife Photography",
+      "bio": "David Chen is a passionate wildlife photographer who has a deep love for animals and nature. Through his lens, he captures mesmerizing images of wildlife in their natural habitats. David's classes focus on understanding animal behavior, mastering telephoto lens techniques, and the ethics of wildlife photography. Join his classes to learn how to create compelling wildlife photographs.",
+      "imageUrl": "https://i.ibb.co/KGwKr9g/team-05.jpg"
+    },
+    {
+      "_id": "6",
+      "name": "Megan Thompson",
+      "specialty": "Travel Photography",
+      "bio": "Megan Thompson is an avid traveler and travel photographer who seeks to capture the essence and beauty of different cultures and destinations. With her extensive travel experience, Megan shares her knowledge of capturing unique perspectives, telling stories through images, and planning successful travel photography trips. Join her classes to learn how to create captivating travel photographs.",
+      "imageUrl": "https://i.ibb.co/Ss5vW7C/team-04.jpg"
+    }
   ]
 }

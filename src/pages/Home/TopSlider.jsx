@@ -2,11 +2,8 @@
 import { Autoplay, Pagination } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import useTheme from "../../hooks/useTheme";
 
 const TopSlider = ({ contents }) => {
-  const { theme } = useTheme();
-
   return (
     <Swiper
       grabCursor
@@ -22,11 +19,7 @@ const TopSlider = ({ contents }) => {
       {contents.map((item) => (
         <SwiperSlide key={item._id}>
           <div className="container grid grid-cols-2 items-center h-[700px]">
-            <div
-              className={`w-4/5 mx-auto p-5 rounded-xl ${
-                theme === "dark" ? "bg-white/10" : "bg-black/10"
-              }`}
-            >
+            <div className="w-4/5 mx-auto p-6 rounded-xl bg-neutral/5">
               <img
                 src={item.image}
                 alt=""

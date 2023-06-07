@@ -50,7 +50,7 @@ body {
 }
 
 .menu a {
-  @apply font-medium hover:bg-inherit focus:bg-inherit duration-200;
+  @apply font-medium bg-inherit hover:bg-inherit focus:bg-inherit duration-200;
 }
 
 .menu a:hover {

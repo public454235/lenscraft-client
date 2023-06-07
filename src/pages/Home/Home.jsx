@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import PopularClasses from "./PopularClasses";
+import PopularInstructors from "./PopularInstructors";
 import TopSlider from "./TopSlider";
 
 const Home = () => {
@@ -11,10 +13,12 @@ const Home = () => {
     },
   });
   if (isLoading) return <div>Loading...</div>;
-  console.log(data);
+
   return (
     <div>
       <TopSlider contents={data?.topSlider} />
+      <PopularClasses contents={data?.popularClasses} />
+      <PopularInstructors contents={data?.popularInstructors} />
     </div>
   );
 };

@@ -22,12 +22,12 @@ const NavItems = () => {
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
+
   const themeToggler = (checked) => {
     checked ? setTheme("light") : setTheme("dark");
   };
   return (
-    <nav className="drawer">
+    <nav className="drawer z-20">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
