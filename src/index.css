@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+}
+
+.rn-gradient-circle {
+  background-image: linear-gradient(45deg, #059dff, #36c6f0);
+  -webkit-filter: blur(100px);
+  filter: blur(100px);
+  @apply fixed w-[500px] h-[500px] top-64 -left-64 -z-10 rounded-full opacity-25;
+}
+
+.rn-gradient-circle.theme-pink {
+  background-image: linear-gradient(45deg, #fb5343, #6549d5);
+  @apply -top-64 -right-64 left-auto bottom-auto;
+}
