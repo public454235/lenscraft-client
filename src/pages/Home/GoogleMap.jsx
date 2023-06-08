@@ -12,7 +12,7 @@ const GoogleMap = () => {
   };
   return (
     // Important! Always set the container height explicitly
-    <div className="w-full h-full min-h-[400px] rounded-xl overflow-hidden">
+    <div className="w-full h-5/6 min-h-[400px] rounded-xl overflow-hidden">
       <GoogleMapReact
         bootstrapURLKeys={{ key: "" }}
         defaultCenter={defaultProps.center}

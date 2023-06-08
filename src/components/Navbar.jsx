@@ -33,18 +33,14 @@ const Navbar = () => {
         {/* Navbar */}
         <div className="w-full bg-base-300">
           <div className="container navbar justify-between">
-            <div className="shrink-0 px-2 mx-2">
+            <div className="shrink-0">
               <div className="w-10 h-10 rounded-full gradient-bg grid place-content-center">
-                <div
-                  className={`w-8 h-8 rounded-full bg-base-300 text-center font-bold text-2xl ${
-                    theme === "dark" ? "text-white" : "text-black"
-                  }`}
-                >
+                <div className="w-8 h-8 rounded-full bg-base-300 text-center font-bold text-2xl text-neutral">
                   L
                 </div>
               </div>
               <h2
-                className={`ml-2 text-2xl font-bold ${
+                className={`ml-2 text-2xl font-bold hidden sm:block ${
                   theme === "dark" ? "text-white" : "gradient-text"
                 }`}
               >
@@ -58,10 +54,13 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="shrink-0 flex items-center gap-2">
-              <Link to="/login" className="btn btn-gradient rounded-full">
+              <Link
+                to="/login"
+                className="btn btn-gradient rounded-full min-h-fit h-10"
+              >
                 Login
               </Link>
-              <button className="btn btn-secondary btn-circle">
+              <button className="btn btn-secondary btn-circle min-h-fit h-10 w-10">
                 <label className="swap swap-rotate text-white">
                   {/* this hidden checkbox controls the state */}
                   <input
