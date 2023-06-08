@@ -1,27 +1,58 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 import GoogleLogin from "./GoogleLogin";
 
 const Login = () => {
+  const { user, loading, error, loginUser } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Perform login logic here
+  const { state } = useLocation();
+  const from = state?.pathname || "/";
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+    try {
+      const res = await loginUser(email, password);
+      if (res.message) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Success!",
+          text: res.message,
+          timer: 2000,
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  if (user) return <Navigate to={from} replace={true} />;
 
   return (
     <div className="container my-20">
       <div className="max-w-2xl mx-auto">
-        <form onSubmit={handleLogin} className="">
+        <form onSubmit={handleSubmit(onSubmit)} className="">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral mb-8 text-center">
             Login
           </h1>
           <GoogleLogin />
           <div>
+            {/* email */}
             <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text text-base">Email</span>
@@ -30,8 +61,15 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 className="input md:py-7 input-bordered border-2 focus:outline-none focus:border-primary"
+                {...register("email", { required: true })}
               />
+              {errors.email && (
+                <span className="text-red-500 text-sm p-1">
+                  Email is required
+                </span>
+              )}
             </div>
+            {/* password */}
             <div className="form-control mb-6 relative">
               <label className="label">
                 <span className="label-text text-base">Password</span>
@@ -40,7 +78,16 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="password"
                 className="input md:py-7 input-bordered border-2 focus:outline-none focus:border-primary pr-12"
+                {...register("password", { required: true })}
               />
+              {errors.password && (
+                <span className="text-red-500 text-sm p-1">
+                  Password is required
+                </span>
+              )}
+              {error && (
+                <span className="text-red-500 text-sm p-1">{error}</span>
+              )}
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
@@ -49,15 +96,22 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
+            {/* login button */}
             <div className="form-control mb-6">
               <button
+                disabled={loading}
                 type="submit"
-                className="btn btn-gradient md:btn-lg normal-case md:text-xl"
+                className="btn btn-gradient md:btn-lg normal-case md:text-xl disabled:text-white"
               >
                 Login
-                <FaArrowRight className="text-base align-bottom" />
+                {loading ? (
+                  <span className="loading loading-spinner"></span>
+                ) : (
+                  <FaArrowRight className="text-base align-bottom" />
+                )}
               </button>
             </div>
+            {/* link to register page */}
             <div className="flex items-center justify-center gap-x-5">
               <span className="label-text text-base flex items-center gap-x-2">
                 Don&#39;t have an account? Click here <HiArrowLongRight />

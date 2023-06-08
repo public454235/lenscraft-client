@@ -12,7 +12,7 @@ import useTheme from "../hooks/useTheme";
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <footer className="pt-10 bg-neutral/5">
+    <footer className="pt-10 bg-base-300">
       <div className="footer container py-4">
         <div>
           <div className="flex items-center mb-5">

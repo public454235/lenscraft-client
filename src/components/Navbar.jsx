@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 import useTheme from "../hooks/useTheme";
 
 const NavItems = () => {
@@ -22,9 +24,24 @@ const NavItems = () => {
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
+  const { user, logoutUser } = useAuth();
 
   const themeToggler = (checked) => {
     checked ? setTheme("light") : setTheme("dark");
+  };
+
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Success!",
+          text: "Log out successful",
+          timer: 2000,
+        });
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <nav className="drawer z-20">
@@ -54,12 +71,38 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="shrink-0 flex items-center gap-2">
-              <Link
-                to="/login"
-                className="btn btn-gradient rounded-full min-h-fit h-10"
-              >
-                Login
-              </Link>
+              {user ? (
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar mt-0.5"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img src={user?.photoURL} />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="mt-3 p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a className="hover:!bg-neutral/10">
+                        {user?.displayName}
+                      </a>
+                    </li>
+                    <li onClick={handleLogout}>
+                      <a className="hover:!bg-neutral/10">Logout</a>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-gradient rounded-full min-h-fit h-10"
+                >
+                  Login
+                </Link>
+              )}
               <button className="btn btn-secondary btn-circle min-h-fit h-10 w-10">
                 <label className="swap swap-rotate text-white">
                   {/* this hidden checkbox controls the state */}
