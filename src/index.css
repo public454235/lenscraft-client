@@ -110,3 +110,14 @@ body {
 .footer a {
   @apply hover:text-primary duration-200;
 }
+
+.dashboard.menu a {
+  @apply border-l-4 border-transparent py-3;
+}
+
+.dashboard.menu a:hover {
+  @apply bg-neutral/10 text-neutral;
+}
+.dashboard.menu a.active {
+  @apply bg-neutral/10 rounded-s-none text-neutral border-secondary;
+}

@@ -20,11 +20,14 @@ const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
         const token = localStorage.getItem("token");
-        if (token) setLoading(false);
+        if (!token) {
+          await saveAccessToken(currentUser.email);
+        }
+        setLoading(false);
       } else setLoading(false);
     });
 
