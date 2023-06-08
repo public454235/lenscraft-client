@@ -1,5 +1,5 @@
+import ClassCard from "../../components/ClassCard";
 import SectionHeader from "../../components/SectionHeader";
-import ClassCard from "./ClassCard";
 
 const PopularClasses = ({ contents }) => {
   return (

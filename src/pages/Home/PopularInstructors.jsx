@@ -1,5 +1,5 @@
+import InstructorCard from "../../components/InstructorCard";
 import SectionHeader from "../../components/SectionHeader";
-import InstructorCard from "./InstructorCard";
 
 const PopularInstructors = ({ contents }) => {
   return (

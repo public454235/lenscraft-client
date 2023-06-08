@@ -81,9 +81,32 @@ body {
       #e33fa1 75%,
       #fb5343
     )
-    50%/200% 100%;
+    70%/200% 100%;
 }
 
 .container {
   @apply mx-auto px-4 md:px-6 xl:px-8;
+}
+
+.page-header-dark {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("https://i.ibb.co/qNpgyS4/Teachers-looking-at-camera-on-our-photography-training-day.jpg");
+}
+
+.page-header-light {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("https://i.ibb.co/qNpgyS4/Teachers-looking-at-camera-on-our-photography-training-day.jpg");
+}
+
+.breadcrumbs a,
+.footer a {
+  @apply hover:text-primary duration-200;
 }
