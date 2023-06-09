@@ -38,6 +38,7 @@ const AuthProvider = ({ children }) => {
     const res = await axios.post("http://localhost:5000/api/users", {
       name: auth.currentUser.displayName,
       email: auth.currentUser.email,
+      photoURL: auth.currentUser.photoURL,
     });
     return res.data;
   };

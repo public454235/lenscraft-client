@@ -1,11 +1,76 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
+import useSecureAxios from "../hooks/useSecureAxios";
 import useTheme from "../hooks/useTheme";
+import useUserRole from "../hooks/useUserRole";
 
 const ClassCard = ({ content }) => {
   const { theme } = useTheme();
-  const { name, image, price, instructor, availableSeats } = content;
+  const { user } = useAuth();
+  const { role } = useUserRole();
+  const { _id, name, image, price, instructor, seats, enrolledCount } = content;
   const [hovered, setHovered] = useState(false);
-  console.log(hovered);
+  const [loading, setLoading] = useState(false);
+  const availableSeats = seats - enrolledCount;
+
+  const secureAxios = useSecureAxios();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSelectClass = async () => {
+    setLoading(true);
+    try {
+      if (!user) {
+        Swal.fire({
+          icon: "warning",
+          title: "Failed!",
+          text: "Please login first to select a class",
+          showCancelButton: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/login", {
+              state: location,
+            });
+          }
+        });
+      }
+      const res = await secureAxios.post("selected-classes", {
+        classId: _id,
+        name,
+        image,
+        price,
+        instructor,
+        email: user.email,
+      });
+
+      if (res.data?.message) {
+        Swal.fire({
+          icon: "error",
+          title: "Failed!",
+          text: res.data.message,
+          timer: 2000,
+          position: "top-end",
+        });
+      }
+
+      if (res.data?.insertedId) {
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: `${name} is added to your selected classes`,
+          timer: 2000,
+          position: "top-end",
+        });
+      }
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div
       className={`w-full rounded-md overflow-hidden ${
@@ -30,13 +95,13 @@ const ClassCard = ({ content }) => {
           <h3 className="font-semibold gradient-text">$ {price}</h3>
         </div>
         <div
-          className={`absolute top-0 left-0 w-full h-full bg-base-200/70 z-10 duration-300 text-center grid place-content-center ${
-            hovered ? "translate-y-0" : "translate-y-full"
+          className={`absolute bottom-0 left-0 w-full bg-base-200/70 z-10 duration-300 text-center grid place-content-center overflow-hidden ${
+            hovered ? "h-[100%]" : "h-[0%]"
           }`}
         >
           <div
-            className={`duration-200 delay-300 ${
-              hovered ? "translate-x-0" : "-translate-x-[200%]"
+            className={`duration-200 delay-100 ease-in-out ${
+              hovered ? "translate-x-0" : "-translate-x-full"
             }`}
           >
             <div
@@ -51,10 +116,17 @@ const ClassCard = ({ content }) => {
               </p>
             </div>
             <button
-              disabled={!availableSeats}
+              onClick={handleSelectClass}
+              disabled={
+                !availableSeats || role === "admin" || role === "instructor"
+              }
               className="btn btn-gradient border-none rounded-full normal-case disabled:opacity-0"
             >
-              Select this class
+              {loading ? (
+                <span className="loading loading-spinner" />
+              ) : (
+                "Select this class"
+              )}
             </button>
           </div>
         </div>

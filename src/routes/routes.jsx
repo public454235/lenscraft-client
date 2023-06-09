@@ -6,6 +6,12 @@ import Register from "../pages/Auth/Register";
 import Classes from "../pages/Classes/Classes";
 import Home from "../pages/Home/Home";
 import Instructors from "../pages/Instructors/Instructors";
+import AdminRoute from "../pages/PrivateRoutes/AdminRoutes/AdminRoute";
+import ManageClasses from "../pages/PrivateRoutes/AdminRoutes/ManageClasses";
+import ManageUsers from "../pages/PrivateRoutes/AdminRoutes/ManageUsers";
+import AddAClass from "../pages/PrivateRoutes/InstructorRoutes/AddAClass";
+import InstructorRoute from "../pages/PrivateRoutes/InstructorRoutes/InstructorRoute";
+import MyClasses from "../pages/PrivateRoutes/InstructorRoutes/MyClasses";
 import PrivateRoute from "../pages/PrivateRoutes/PrivateRoute";
 import MyEnrolledClasses from "../pages/PrivateRoutes/StudentRoutes/MyEnrolledClasses";
 import MySelectedClasses from "../pages/PrivateRoutes/StudentRoutes/MySelectedClasses";
@@ -46,6 +52,7 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // student routes
       {
         path: "my-selected-classes",
         element: (
@@ -60,6 +67,42 @@ export const router = createBrowserRouter([
           <StudentRoute>
             <MyEnrolledClasses />
           </StudentRoute>
+        ),
+      },
+
+      // instructor routes
+      {
+        path: "add-a-class",
+        element: (
+          <InstructorRoute>
+            <AddAClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "my-classes",
+        element: (
+          <InstructorRoute>
+            <MyClasses />
+          </InstructorRoute>
+        ),
+      },
+
+      // admin routes
+      {
+        path: "manage-classes",
+        element: (
+          <AdminRoute>
+            <ManageClasses />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <AdminRoute>
+            <ManageUsers />
+          </AdminRoute>
         ),
       },
     ],

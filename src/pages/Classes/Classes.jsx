@@ -3,15 +3,18 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import ClassCard from "../../components/ClassCard";
 import PageHeader from "../../components/PageHeader";
+import Spinner from "../../components/Spinner";
 
 const Classes = () => {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["instructors"],
+  const { data, isLoading } = useQuery({
+    queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axios.get("data.json");
-      return res.data?.popularClasses;
+      const res = await axios.get("http://localhost:5000/api/classes");
+      return res.data;
     },
   });
+
+  if (isLoading) return <Spinner />;
 
   return (
     <>

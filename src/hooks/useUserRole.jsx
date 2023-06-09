@@ -6,10 +6,13 @@ const useUserRole = () => {
   const { user } = useAuth();
   const secureAxios = useSecureAxios();
   const { data, isLoading } = useQuery({
-    queryHash: [user.email],
+    queryHash: [user?.email],
+    enabled: Boolean(user),
     queryFn: async () => {
-      const res = await secureAxios.get(`users/${user.email}`);
-      return res.data;
+      if (user) {
+        const res = await secureAxios.get(`users/${user?.email}`);
+        return res.data;
+      }
     },
   });
   return { role: data?.role, isLoading };

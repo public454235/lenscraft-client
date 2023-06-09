@@ -3,15 +3,18 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import InstructorCard from "../../components/InstructorCard";
 import PageHeader from "../../components/PageHeader";
+import Spinner from "../../components/Spinner";
 
 const Instructors = () => {
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["instructors"],
     queryFn: async () => {
-      const res = await axios.get("data.json");
-      return res.data?.popularInstructors;
+      const res = await axios.get("http://localhost:5000/api/instructors");
+      return res.data;
     },
   });
+
+  if (isLoading) return <Spinner />;
 
   return (
     <>

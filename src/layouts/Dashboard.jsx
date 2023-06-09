@@ -1,5 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import ThemeToggler from "../components/ThemeToggler";
 import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
@@ -8,12 +9,7 @@ const Dashboard = () => {
   const { user } = useAuth();
   const { role, isLoading } = useUserRole();
 
-  if (isLoading)
-    return (
-      <div className="my-12 grid place-content-center">
-        <div className="loading loading-spinner loading-lg"></div>
-      </div>
-    );
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -65,7 +61,7 @@ const Dashboard = () => {
             </div>
             <div>
               <h3 className="font-bold text-neutral">{user?.displayName}</h3>
-              <p className="opacity-60 text-xs">Student</p>
+              <p className="opacity-60 text-xs">{role}</p>
             </div>
           </div>
           {/* Sidebar content here */}
