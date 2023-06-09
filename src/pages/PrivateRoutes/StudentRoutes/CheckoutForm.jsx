@@ -84,7 +84,7 @@ const CheckoutForm = ({ classDetails }) => {
                   showConfirmButton: false,
                 });
               }
-              navigate("/dashboard/my-selected-classes");
+              navigate("/dashboard/my-enrolled-classes");
             }
           }
         });

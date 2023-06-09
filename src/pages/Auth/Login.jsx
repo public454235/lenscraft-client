@@ -91,7 +91,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-5 bottom-5 text-lg"
+                className="absolute right-5 top-16 text-lg"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>

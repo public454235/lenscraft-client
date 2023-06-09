@@ -1,5 +1,60 @@
+import moment from "moment/moment";
+import Spinner from "../../../components/Spinner";
+import useEnrolledClasses from "../../../hooks/useEnrolledClasses";
+
 const PaymentHistory = () => {
-  return <div>PaymentHistory</div>;
+  const { enrolledClasses, isLoading } = useEnrolledClasses();
+  if (isLoading) return <Spinner />;
+  return (
+    <div className="container my-12">
+      <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
+        Payment History
+      </h1>
+      <div className="w-full overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr className="text-xl text-neutral">
+              <th className="bg-neutral/10 rounded-tl-lg"></th>
+              <th className="bg-neutral/10">Class</th>
+              <th className="bg-neutral/10">Payment Amount</th>
+              <th className="bg-neutral/10">Transaction ID</th>
+              <th className="bg-neutral/10 rounded-tr-lg">Payment Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* rows */}
+            {enrolledClasses.map((item, i) => (
+              <tr key={item._id}>
+                <th>{i + 1}</th>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-16 h-16">
+                        <img src={item.classDetails.image} alt="" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-base">
+                        {item.classDetails.name}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td className="text-lg font-semibold">
+                  $ {item.paymentAmount}
+                </td>
+                <td>{item.transactionId}</td>
+                <th className="space-x-3">
+                  {moment(item.date).format("MMMM DD YYYY, h:mm:ss a")}
+                </th>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default PaymentHistory;
