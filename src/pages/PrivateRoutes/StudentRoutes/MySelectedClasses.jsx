@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner";
 import useAuth from "../../../hooks/useAuth";
@@ -6,6 +7,8 @@ import useSecureAxios from "../../../hooks/useSecureAxios";
 
 const MySelectedClasses = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
+
   const secureAxios = useSecureAxios();
   const {
     data = [],
@@ -41,6 +44,12 @@ const MySelectedClasses = () => {
     });
   };
 
+  const handlePurchase = (item) => {
+    navigate("/dashboard/payment", {
+      state: item,
+    });
+  };
+
   if (isLoading) return <Spinner />;
 
   return (
@@ -70,10 +79,7 @@ const MySelectedClasses = () => {
                   <div className="flex items-center space-x-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-16 h-16">
-                        <img
-                          src={item.image}
-                          alt="Avatar Tailwind CSS Component"
-                        />
+                        <img src={item.image} alt="" />
                       </div>
                     </div>
                     <div>
@@ -87,7 +93,13 @@ const MySelectedClasses = () => {
                 <td className="text-base text-center">$ {item.price}</td>
                 <td className="text-base text-center">{item.availableSeats}</td>
                 <th className="space-x-3">
-                  <button className="btn btn-gradient !px-4 btn-xs">Pay</button>
+                  <button
+                    disabled={!item.availableSeats}
+                    onClick={() => handlePurchase(item)}
+                    className="btn btn-gradient !px-4 btn-xs"
+                  >
+                    Purchase
+                  </button>
                   <button
                     onClick={() => handleDelete(item._id)}
                     className="btn btn-secondary btn-xs"

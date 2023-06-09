@@ -77,6 +77,11 @@ const Dashboard = () => {
                   My Enrolled Classes
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/payment-history">
+                  Payment History
+                </NavLink>
+              </li>
             </>
           )}
 

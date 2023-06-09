@@ -15,6 +15,8 @@ import MyClasses from "../pages/PrivateRoutes/InstructorRoutes/MyClasses";
 import PrivateRoute from "../pages/PrivateRoutes/PrivateRoute";
 import MyEnrolledClasses from "../pages/PrivateRoutes/StudentRoutes/MyEnrolledClasses";
 import MySelectedClasses from "../pages/PrivateRoutes/StudentRoutes/MySelectedClasses";
+import Payment from "../pages/PrivateRoutes/StudentRoutes/Payment";
+import PaymentHistory from "../pages/PrivateRoutes/StudentRoutes/PaymentHistory";
 import StudentRoute from "../pages/PrivateRoutes/StudentRoutes/StudentRoute";
 
 export const router = createBrowserRouter([
@@ -68,6 +70,18 @@ export const router = createBrowserRouter([
             <MyEnrolledClasses />
           </StudentRoute>
         ),
+      },
+      {
+        path: "payment",
+        element: (
+          <StudentRoute>
+            <Payment />
+          </StudentRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
       },
 
       // instructor routes
