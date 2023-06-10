@@ -9,7 +9,9 @@ const PageHeader = ({ title, children }) => {
       }`}
     >
       <div>
-        <h1 className="text-5xl font-bold gradient-text mb-4">{title}</h1>
+        <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+          {title}
+        </h1>
         <div className="breadcrumbs w-fit mx-auto">
           <ul>{children}</ul>
         </div>

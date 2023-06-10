@@ -1,16 +1,70 @@
 import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner";
 import useSecureAxios from "../../../hooks/useSecureAxios";
 
 const ManageClasses = () => {
   const secureAxios = useSecureAxios();
-  const { data: allClasses = [], isLoading } = useQuery({
+  const {
+    data: allClasses = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["all-classes"],
     queryFn: async () => {
       const res = await secureAxios.get("all-classes");
       return res.data;
     },
   });
+
+  const handleApprove = async (id, action) => {
+    try {
+      const res = await secureAxios.patch(`classes/${id}`, { action });
+      if (res.data?.modifiedCount === 1) {
+        refetch();
+        Swal.fire({
+          icon: "success",
+          title:
+            action === "approved" ? "Class is approved" : "Class is denied",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+      } else throw new Error("Something wrong!");
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed!",
+        text: error.message,
+      });
+    }
+  };
+
+  const handleFeedback = (item) => {
+    Swal.fire({
+      title: `Feedback`,
+      text: `Write reason for accept or deny ${item.name} class`,
+      input: "text",
+      inputValue: item.feedback ? item.feedback : "",
+      confirmButtonText: "Submit",
+      showCancelButton: true,
+    }).then(async (result) => {
+      if (result.value.trim()) {
+        const res = await secureAxios.patch(
+          `classes/add-feedback/${item._id}`,
+          { feedback: result.value }
+        );
+        if (res.data?.modifiedCount === 1) {
+          refetch();
+          Swal.fire({
+            icon: "success",
+            title: "Done!",
+            timer: 2000,
+            showConfirmButton: false,
+          });
+        }
+      }
+    });
+  };
 
   if (isLoading) return <Spinner />;
   return (
@@ -63,6 +117,7 @@ const ManageClasses = () => {
                 <td className="text-center">{item.status}</td>
                 <th className="text-center flex flex-col items-center space-y-2">
                   <button
+                    onClick={() => handleApprove(item._id, "approved")}
                     disabled={
                       item.status === "approved" || item.status === "denied"
                     }
@@ -71,6 +126,7 @@ const ManageClasses = () => {
                     Approve
                   </button>
                   <button
+                    onClick={() => handleApprove(item._id, "denied")}
                     disabled={
                       item.status === "approved" || item.status === "denied"
                     }
@@ -78,7 +134,10 @@ const ManageClasses = () => {
                   >
                     Deny
                   </button>
-                  <button className="btn btn-accent w-24 btn-xs">
+                  <button
+                    onClick={() => handleFeedback(item)}
+                    className="btn btn-accent w-24 btn-xs"
+                  >
                     Feedback
                   </button>
                 </th>

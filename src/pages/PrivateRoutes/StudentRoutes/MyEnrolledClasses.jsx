@@ -24,7 +24,7 @@ const MyEnrolledClasses = () => {
           </thead>
           <tbody>
             {/* rows */}
-            {enrolledClasses.map((item, i) => (
+            {enrolledClasses?.map((item, i) => (
               <tr key={item._id}>
                 <th>{i + 1}</th>
                 <td>

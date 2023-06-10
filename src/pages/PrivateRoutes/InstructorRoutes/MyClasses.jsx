@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner";
 import useAuth from "../../../hooks/useAuth";
 import useSecureAxios from "../../../hooks/useSecureAxios";
@@ -64,6 +65,12 @@ const MyClasses = () => {
                     Update
                   </button>
                   <button
+                    onClick={() =>
+                      Swal.fire({
+                        title: `Feedback of ${item.name} class`,
+                        text: item.feedback,
+                      })
+                    }
                     disabled={!item.feedback}
                     className="btn btn-accent w-24 btn-xs"
                   >

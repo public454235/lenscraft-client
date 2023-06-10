@@ -6,7 +6,7 @@ const useEnrolledClasses = () => {
   const { user } = useAuth();
   const secureAxios = useSecureAxios();
   const { data: enrolledClasses = [], isLoading } = useQuery({
-    queryKey: [user?.email],
+    queryKey: ["enrolled-classes", user?.email],
     queryFn: async () => {
       const res = await secureAxios.get(`enrolled-classes/${user?.email}`);
       return res.data;

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useSecureAxios from "../../../hooks/useSecureAxios";
@@ -9,6 +10,7 @@ const AddAClass = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const secureAxios = useSecureAxios();
+  const navigate = useNavigate();
   const imgbbUrl = `https://api.imgbb.com/1/upload?key=${
     import.meta.env.VITE_image_hosting_key
   }`;
@@ -51,6 +53,7 @@ const AddAClass = () => {
             showConfirmButton: false,
           });
           reset();
+          navigate("/dashboard/my-classes");
         }
       }
     } catch (error) {
