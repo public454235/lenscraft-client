@@ -7,10 +7,10 @@ const PopularClasses = ({ contents }) => {
     <section className="container my-24">
       <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
         <SectionHeader header="Popular Classes" />
-        <h1 className="text-neutral font-bold text-5xl text-center mb-4">
+        <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-4">
           Welcome to LensCraft
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-center mb-12">
+        <p className="max-w-3xl mx-auto md:text-lg text-center mb-12">
           Your ultimate destination for photography education and inspiration!
           Our photography school offers a wide range of classes and workshops
           designed to enhance your skills and unleash your creative potential.

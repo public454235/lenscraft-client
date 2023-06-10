@@ -38,7 +38,7 @@ const TopSlider = ({ contents }) => {
                   ))}
                 </Fade>
               </h1>
-              <p className="text-lg sm:text-2xl lg:text-3xl pb-4">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl pb-4">
                 {item.description}
               </p>
               <Link

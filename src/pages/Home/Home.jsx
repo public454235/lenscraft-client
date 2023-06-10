@@ -11,7 +11,7 @@ const Home = () => {
     queryKey: ["DATA"],
     queryFn: async () => {
       const instance = axios.create({
-        baseURL: "http://localhost:5000/api/",
+        baseURL: "https://lenscarft-sam.vercel.app/api/",
       });
       const sliderContents = await instance.get("slider-contents");
       const popularClasses = await instance.get("popular-classes");

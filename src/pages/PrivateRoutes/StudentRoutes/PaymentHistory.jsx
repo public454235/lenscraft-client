@@ -14,12 +14,24 @@ const PaymentHistory = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-xl text-neutral">
+            <tr className="text-xl text-neutral text-center">
               <th className="bg-neutral/10 rounded-tl-lg"></th>
               <th className="bg-neutral/10">Class</th>
-              <th className="bg-neutral/10">Payment Amount</th>
-              <th className="bg-neutral/10">Transaction ID</th>
-              <th className="bg-neutral/10 rounded-tr-lg">Payment Date</th>
+              <th className="bg-neutral/10">
+                Payment
+                <br />
+                Amount
+              </th>
+              <th className="bg-neutral/10">
+                Transaction
+                <br />
+                ID
+              </th>
+              <th className="bg-neutral/10 rounded-tr-lg">
+                Payment
+                <br />
+                Date
+              </th>
             </tr>
           </thead>
           <tbody>

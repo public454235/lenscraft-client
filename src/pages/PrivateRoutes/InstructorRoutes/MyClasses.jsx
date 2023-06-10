@@ -79,7 +79,10 @@ const MyClasses = () => {
                   )}
                 </td>
                 <th className="text-center flex flex-col items-center space-y-2">
-                  <button className="btn btn-gradient w-24 btn-xs">
+                  <button
+                    disabled={item.status === "approved"}
+                    className="btn btn-gradient w-24 btn-xs"
+                  >
                     Update
                   </button>
                 </th>

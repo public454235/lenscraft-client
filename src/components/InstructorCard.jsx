@@ -13,7 +13,9 @@ const InstructorCard = ({ content }) => {
             className="w-full aspect-square object-cover rounded-full object-center"
           />
         </div>
-        <h1 className="text-3xl font-bold text-neutral mb-4">{name}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-neutral mb-4">
+          {name}
+        </h1>
 
         <div className="menu menu-horizontal gap-3 text-lg">
           <a

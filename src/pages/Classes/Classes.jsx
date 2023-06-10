@@ -9,7 +9,9 @@ const Classes = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/api/classes");
+      const res = await axios.get(
+        "https://lenscarft-sam.vercel.app/api/classes"
+      );
       return res.data;
     },
   });

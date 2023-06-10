@@ -7,10 +7,10 @@ const PopularInstructors = ({ contents }) => {
     <section className="container my-24">
       <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
         <SectionHeader header="Popular Instructors" />
-        <h1 className="text-neutral font-bold text-5xl text-center mb-4">
+        <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-4">
           Meet Our Expert Instructors
         </h1>
-        <p className="max-w-3xl mx-auto text-lg text-center mb-12">
+        <p className="max-w-3xl mx-auto md:text-lg text-center mb-12">
           Learn from the best in the industry! Our experienced and passionate
           instructors bring their expertise and insights to help you master the
           art of photography. Get inspired and enhance your skills with our

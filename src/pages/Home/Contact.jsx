@@ -10,7 +10,7 @@ const Contact = () => {
     <section className="container my-24">
       <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
         <SectionHeader header="Contact Form" />
-        <h1 className="text-neutral font-bold text-5xl text-center mb-12">
+        <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-12">
           Our Contact Address Here.
         </h1>
       </Fade>
