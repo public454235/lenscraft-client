@@ -59,22 +59,28 @@ const MyClasses = () => {
                 </td>
                 <td className="text-center">$ {item.price}</td>
                 <td className="text-center">{item.enrolledCount}</td>
-                <td className="text-center">{item.status}</td>
+                <td className="text-center">
+                  {item.status}
+                  {item.status === "denied" && (
+                    <>
+                      <br />
+                      <button
+                        onClick={() =>
+                          Swal.fire({
+                            title: `Feedback of ${item.name} class`,
+                            text: item.feedback || "no feedback yet",
+                          })
+                        }
+                        className="btn btn-accent btn-xs"
+                      >
+                        See Feedback
+                      </button>
+                    </>
+                  )}
+                </td>
                 <th className="text-center flex flex-col items-center space-y-2">
                   <button className="btn btn-gradient w-24 btn-xs">
                     Update
-                  </button>
-                  <button
-                    onClick={() =>
-                      Swal.fire({
-                        title: `Feedback of ${item.name} class`,
-                        text: item.feedback,
-                      })
-                    }
-                    disabled={!item.feedback}
-                    className="btn btn-accent w-24 btn-xs"
-                  >
-                    Show Feedback
                   </button>
                 </th>
               </tr>

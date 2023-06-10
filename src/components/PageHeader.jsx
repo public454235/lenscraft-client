@@ -1,3 +1,4 @@
+import { Zoom } from "react-awesome-reveal";
 import useTheme from "../hooks/useTheme";
 
 const PageHeader = ({ title, children }) => {
@@ -8,14 +9,16 @@ const PageHeader = ({ title, children }) => {
         theme === "dark" ? "page-header-dark" : "page-header-light"
       }`}
     >
-      <div>
-        <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-          {title}
-        </h1>
-        <div className="breadcrumbs w-fit mx-auto">
-          <ul>{children}</ul>
+      <Zoom triggerOnce>
+        <div>
+          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+            {title}
+          </h1>
+          <div className="breadcrumbs w-fit mx-auto">
+            <ul>{children}</ul>
+          </div>
         </div>
-      </div>
+      </Zoom>
     </div>
   );
 };

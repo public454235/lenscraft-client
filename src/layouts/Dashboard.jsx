@@ -1,5 +1,5 @@
 import { FaBars } from "react-icons/fa";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import ThemeToggler from "../components/ThemeToggler";
 import useAuth from "../hooks/useAuth";
@@ -36,6 +36,7 @@ const Dashboard = () => {
         </div>
 
         <Outlet />
+        <ScrollRestoration />
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>

@@ -1,4 +1,6 @@
 // import Swiper core and required modules
+import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 import { Autoplay, Pagination } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,18 +30,23 @@ const TopSlider = ({ contents }) => {
             </div>
             <div className="space-y-8">
               <h1 className="font-extrabold text-5xl lg:text-6xl xl:text-7xl py-1 leading-snug">
-                {item.caption.split(" ").map((a, i) => (
-                  <span key={i} className="gradient-text">
-                    {a}{" "}
-                  </span>
-                ))}
+                <Fade cascade damping={0.1} className="inline">
+                  {item.caption.split(" ").map((a, i) => (
+                    <span key={i} className="gradient-text">
+                      {a}{" "}
+                    </span>
+                  ))}
+                </Fade>
               </h1>
               <p className="text-lg sm:text-2xl lg:text-3xl pb-4">
                 {item.description}
               </p>
-              <button className="btn md:btn-lg btn-gradient rounded-full">
+              <Link
+                to="/classes"
+                className="btn md:btn-lg btn-gradient rounded-full"
+              >
                 Explore Classes
-              </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>

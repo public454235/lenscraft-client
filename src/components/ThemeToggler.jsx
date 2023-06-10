@@ -1,11 +1,15 @@
 import useTheme from "../hooks/useTheme";
 
 const ThemeToggler = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const themeToggler = (checked) => {
-    checked ? setTheme("light") : setTheme("dark");
+    const theme = checked ? "light" : "dark";
+    setTheme(theme);
+    sessionStorage.setItem("theme", theme);
   };
+
+  if (!theme) return "";
 
   return (
     <button className="btn btn-secondary btn-circle min-h-fit h-10 w-10">
@@ -13,7 +17,8 @@ const ThemeToggler = () => {
         {/* this hidden checkbox controls the state */}
         <input
           type="checkbox"
-          onClick={(e) => themeToggler(e.target.checked)}
+          defaultChecked={theme === "light"}
+          onChange={(e) => themeToggler(e.target.checked)}
         />
 
         {/* sun icon */}
