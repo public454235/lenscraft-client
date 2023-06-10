@@ -5,6 +5,7 @@ import useTheme from "../hooks/useTheme";
 import ThemeToggler from "./ThemeToggler";
 
 const NavItems = () => {
+  const { user } = useAuth();
   return (
     <>
       <li>
@@ -16,9 +17,11 @@ const NavItems = () => {
       <li>
         <NavLink to="/classes">Classes</NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 };

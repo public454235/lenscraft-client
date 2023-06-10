@@ -10,11 +10,12 @@ const Dashboard = () => {
   const { role, isLoading } = useUserRole();
 
   if (isLoading) return <Spinner />;
+  console.log(role);
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open max-w-[100vw]">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col">
+      <div className="drawer-content flex flex-col w-[95vw] lg:w-[65vw] xl:w-[72vw] mx-auto">
         {/* Page content here */}
         <div className="navbar bg-base-300 lg:hidden justify-between">
           <div className="shrink-0">
