@@ -6,11 +6,10 @@ import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
 
 const Dashboard = () => {
-  const { user } = useAuth();
   const { role, isLoading } = useUserRole();
+  const { user, loading } = useAuth();
 
-  if (isLoading) return <Spinner />;
-  console.log(role);
+  if (isLoading || loading) return <Spinner />;
 
   return (
     <div className="drawer lg:drawer-open max-w-[100vw]">
@@ -69,13 +68,13 @@ const Dashboard = () => {
           {role === "student" && (
             <>
               <li>
-                <NavLink to="/dashboard/my-selected-classes">
-                  My Selected Classes
+                <NavLink to="/dashboard/my-enrolled-classes">
+                  My Enrolled Classes
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/my-enrolled-classes">
-                  My Enrolled Classes
+                <NavLink to="/dashboard/my-selected-classes">
+                  My Selected Classes
                 </NavLink>
               </li>
               <li>
@@ -89,10 +88,10 @@ const Dashboard = () => {
           {role === "instructor" && (
             <>
               <li>
-                <NavLink to="/dashboard/add-a-class">Add A Class</NavLink>
+                <NavLink to="/dashboard/my-classes">My Classes</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/my-classes">My Classes</NavLink>
+                <NavLink to="/dashboard/add-a-class">Add A Class</NavLink>
               </li>
             </>
           )}

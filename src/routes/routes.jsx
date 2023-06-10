@@ -9,6 +9,7 @@ import Instructors from "../pages/Instructors/Instructors";
 import AdminRoute from "../pages/PrivateRoutes/AdminRoutes/AdminRoute";
 import ManageClasses from "../pages/PrivateRoutes/AdminRoutes/ManageClasses";
 import ManageUsers from "../pages/PrivateRoutes/AdminRoutes/ManageUsers";
+import DashboardHome from "../pages/PrivateRoutes/DashboardHome";
 import AddAClass from "../pages/PrivateRoutes/InstructorRoutes/AddAClass";
 import InstructorRoute from "../pages/PrivateRoutes/InstructorRoutes/InstructorRoute";
 import MyClasses from "../pages/PrivateRoutes/InstructorRoutes/MyClasses";
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: <DashboardHome />,
+      },
       // student routes
       {
         path: "my-selected-classes",

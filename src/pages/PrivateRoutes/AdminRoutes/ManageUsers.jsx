@@ -1,16 +1,34 @@
 import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner";
 import useSecureAxios from "../../../hooks/useSecureAxios";
 
 const ManageUsers = () => {
   const secureAxios = useSecureAxios();
-  const { data: allUsers = [], isLoading } = useQuery({
+  const {
+    data: allUsers = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await secureAxios.get("users");
       return res.data;
     },
   });
+
+  const changeUserRole = async (id, role) => {
+    const res = await secureAxios.patch(`users/${id}`, { role });
+    if (res.data?.modifiedCount === 1) {
+      refetch();
+      Swal.fire({
+        icon: "success",
+        title: `User role changed to ${role}`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    }
+  };
 
   if (isLoading) return <Spinner />;
   return (
@@ -52,12 +70,14 @@ const ManageUsers = () => {
                 <th className="text-center flex flex-col items-center space-y-2">
                   <button
                     disabled={user.role === "instructor"}
+                    onClick={() => changeUserRole(user._id, "instructor")}
                     className="btn btn-primary w-40 btn-xs"
                   >
                     Make Instructor
                   </button>
                   <button
                     disabled={user.role === "admin"}
+                    onClick={() => changeUserRole(user._id, "admin")}
                     className="btn btn-secondary w-40 btn-xs"
                   >
                     Make Admin
