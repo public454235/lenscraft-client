@@ -1,4 +1,6 @@
 import { Fade } from "react-awesome-reveal";
+import { HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import ClassCard from "../../components/ClassCard";
 import SectionHeader from "../../components/SectionHeader";
 
@@ -22,6 +24,14 @@ const PopularClasses = ({ contents }) => {
           <ClassCard key={content._id} content={content} />
         ))}
       </div>
+      <Fade direction="up" triggerOnce>
+        <div className="text-center mt-6">
+          <Link to="/classes" className="btn btn-gradient">
+            See All Classes
+            <HiArrowRight />
+          </Link>
+        </div>
+      </Fade>
     </section>
   );
 };

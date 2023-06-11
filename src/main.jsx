@@ -14,8 +14,8 @@ import ThemeProvider from "./providers/ThemeProvider.jsx";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <HelmetProvider>
+  <HelmetProvider>
+    <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
           <AuthProvider>
@@ -27,6 +27,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </AuthProvider>
         </ThemeProvider>
       </QueryClientProvider>
-    </HelmetProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </HelmetProvider>
 );

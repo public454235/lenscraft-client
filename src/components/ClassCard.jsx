@@ -10,7 +10,7 @@ import useUserRole from "../hooks/useUserRole";
 const ClassCard = ({ content }) => {
   const { theme } = useTheme();
   const { user } = useAuth();
-  const { role } = useUserRole();
+  const { role, isLoading } = useUserRole();
   const { _id, name, image, price, instructor, seats, enrolledCount } = content;
   const [hovered, setHovered] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,6 +19,8 @@ const ClassCard = ({ content }) => {
   const secureAxios = useSecureAxios();
   const navigate = useNavigate();
   const location = useLocation();
+
+  // console.log(user?.email, role, isLoading);
 
   const handleSelectClass = async () => {
     setLoading(true);

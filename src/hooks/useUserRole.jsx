@@ -1,18 +1,23 @@
+import axios from "axios";
 import { useQuery } from "react-query";
 import useAuth from "./useAuth";
-import useSecureAxios from "./useSecureAxios";
 
 const useUserRole = () => {
   const { user } = useAuth();
-  const secureAxios = useSecureAxios();
+  const token = localStorage.getItem("token");
   const { data, isLoading } = useQuery({
-    queryKey: ["role", user?.email],
-    enabled: Boolean(user?.email),
+    queryKey: ["role", user, token],
+    enabled: Boolean(user?.email && token),
     queryFn: async () => {
-      if (user.email) {
-        const res = await secureAxios.get(`users/${user?.email}`);
-        return res.data;
-      }
+      const res = await axios.get(
+        `https://lenscraft-sam.vercel.app/api/users/${user?.email}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      return res.data;
     },
   });
   return { role: data?.role, isLoading };

@@ -1,4 +1,3 @@
-import { Fade } from "react-awesome-reveal";
 import { FaBars } from "react-icons/fa";
 import { Link, NavLink, Outlet, ScrollRestoration } from "react-router-dom";
 import Spinner from "../components/Spinner";
@@ -42,89 +41,85 @@ const Dashboard = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-        <Fade direction="left" cascade damping={0.1} triggerOnce>
-          <ul className="menu p-4 w-80 h-full bg-base-300 text-base-content dashboard flex-nowrap overflow-auto">
-            <div className="flex justify-between">
-              <div className="flex items-center mb-6">
-                <div className="w-10 h-10 rounded-full gradient-bg grid place-content-center">
-                  <div className="w-8 h-8 rounded-full bg-base-300 text-center font-bold text-2xl text-neutral">
-                    L
-                  </div>
+        <ul className="menu p-4 w-80 h-full bg-base-300 text-base-content dashboard flex-nowrap overflow-auto">
+          <div className="flex justify-between">
+            <div className="flex items-center mb-6">
+              <div className="w-10 h-10 rounded-full gradient-bg grid place-content-center">
+                <div className="w-8 h-8 rounded-full bg-base-300 text-center font-bold text-2xl text-neutral">
+                  L
                 </div>
-                <h2 className={`ml-2 text-2xl font-bold gradient-text`}>
-                  LensCraft
-                </h2>
               </div>
-
-              <ThemeToggler />
+              <h2 className={`ml-2 text-2xl font-bold gradient-text`}>
+                LensCraft
+              </h2>
             </div>
-            <div className="flex gap-3 p-4 mb-4 bg-neutral/10 rounded-md">
-              <div className="mask mask-squircle w-8 h-8">
-                <img src={user?.photoURL} />
-              </div>
-              <div>
-                <h3 className="font-bold text-neutral">{user?.displayName}</h3>
-                <p className="opacity-60 text-xs">{role}</p>
-              </div>
+
+            <ThemeToggler />
+          </div>
+          <div className="flex gap-3 p-4 mb-4 bg-neutral/10 rounded-md">
+            <div className="mask mask-squircle w-8 h-8">
+              <img src={user?.photoURL} />
             </div>
-            {/* Sidebar content here */}
-            {role === "student" && (
-              <>
-                <li>
-                  <NavLink to="/dashboard/my-enrolled-classes">
-                    My Enrolled Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/my-selected-classes">
-                    My Selected Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/payment-history">
-                    Payment History
-                  </NavLink>
-                </li>
-              </>
-            )}
+            <div>
+              <h3 className="font-bold text-neutral">{user?.displayName}</h3>
+              <p className="opacity-60 text-xs">{role}</p>
+            </div>
+          </div>
+          {/* Sidebar content here */}
+          {role === "student" && (
+            <>
+              <li>
+                <NavLink to="/dashboard/my-enrolled-classes">
+                  My Enrolled Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/my-selected-classes">
+                  My Selected Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/payment-history">
+                  Payment History
+                </NavLink>
+              </li>
+            </>
+          )}
 
-            {role === "instructor" && (
-              <>
-                <li>
-                  <NavLink to="/dashboard/my-classes">My Classes</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/add-a-class">Add A Class</NavLink>
-                </li>
-              </>
-            )}
+          {role === "instructor" && (
+            <>
+              <li>
+                <NavLink to="/dashboard/my-classes">My Classes</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/add-a-class">Add A Class</NavLink>
+              </li>
+            </>
+          )}
 
-            {role === "admin" && (
-              <>
-                <li>
-                  <NavLink to="/dashboard/manage-classes">
-                    Manage Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/manage-users">Manage Users</NavLink>
-                </li>
-              </>
-            )}
+          {role === "admin" && (
+            <>
+              <li>
+                <NavLink to="/dashboard/manage-classes">Manage Classes</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manage-users">Manage Users</NavLink>
+              </li>
+            </>
+          )}
 
-            <div className="divider" />
+          <div className="divider" />
 
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/instructors">Instructors</NavLink>
-            </li>
-            <li>
-              <NavLink to="/classes">Classes</NavLink>
-            </li>
-          </ul>
-        </Fade>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/instructors">Instructors</NavLink>
+          </li>
+          <li>
+            <NavLink to="/classes">Classes</NavLink>
+          </li>
+        </ul>
       </div>
     </div>
   );
