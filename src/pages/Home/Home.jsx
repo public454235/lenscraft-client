@@ -12,7 +12,7 @@ const Home = () => {
     queryKey: ["DATA"],
     queryFn: async () => {
       const instance = axios.create({
-        baseURL: "https://lenscarft-sam.vercel.app/api/",
+        baseURL: "https://lenscraft-sam.vercel.app/api/",
       });
       const sliderContents = await instance.get("slider-contents");
       const popularClasses = await instance.get("popular-classes");

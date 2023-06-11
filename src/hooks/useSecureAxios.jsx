@@ -6,7 +6,7 @@ import useAuth from "./useAuth";
 const useSecureAxios = () => {
   const { logoutUser } = useAuth();
   const secureAxios = axios.create({
-    baseURL: "https://lenscarft-sam.vercel.app/api/",
+    baseURL: "https://lenscraft-sam.vercel.app/api/",
   });
 
   useEffect(() => {

@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const registerUserInBackend = async () => {
-    const res = await axios.post("https://lenscarft-sam.vercel.app/api/users", {
+    const res = await axios.post("https://lenscraft-sam.vercel.app/api/users", {
       name: auth.currentUser.displayName,
       email: auth.currentUser.email,
       photoURL: auth.currentUser.photoURL,
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const saveAccessToken = async (email) => {
-    const res = await axios.post("https://lenscarft-sam.vercel.app/jwt", {
+    const res = await axios.post("https://lenscraft-sam.vercel.app/jwt", {
       email,
     });
     if (res.data.token) localStorage.setItem("token", res.data.token);

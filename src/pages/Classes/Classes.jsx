@@ -11,7 +11,7 @@ const Classes = () => {
     queryKey: ["classes"],
     queryFn: async () => {
       const res = await axios.get(
-        "https://lenscarft-sam.vercel.app/api/classes"
+        "https://lenscraft-sam.vercel.app/api/classes"
       );
       return res.data;
     },
