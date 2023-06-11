@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply min-h-screen font-inter;
+  @apply min-h-screen font-inter overflow-x-hidden;
 }
 
 .rn-gradient-circle {
@@ -135,4 +135,29 @@ body {
     rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border-radius: 4px;
   @apply bg-neutral/10;
+}
+
+/* scrollbar */
+
+/* Create a custom scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a0aec0 #edf2f7;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-neutral/30 rounded-lg;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral/40;
+}
+
+*::-webkit-scrollbar-track {
+  @apply bg-transparent;
 }
