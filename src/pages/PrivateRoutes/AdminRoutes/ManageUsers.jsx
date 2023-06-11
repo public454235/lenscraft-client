@@ -40,7 +40,7 @@ const ManageUsers = () => {
       </Helmet>
       <Fade direction="up" cascade damping={0.2} triggerOnce>
         <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
-          My Selected Classes
+          Manage Users
         </h1>
 
         <div className="overflow-x-auto">

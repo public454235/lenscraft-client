@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import NotFoundPage from "../components/NotFoundPage";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
 import Login from "../pages/Auth/Login";
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
@@ -49,6 +51,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+    errorElement: <NotFoundPage />,
     element: (
       <PrivateRoute>
         <Dashboard />
