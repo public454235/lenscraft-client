@@ -73,7 +73,7 @@ const ClassCard = ({ content }) => {
   };
 
   return (
-    <Fade direction="up" delay={400} triggerOnce>
+    <Fade direction="up" triggerOnce>
       <div
         className={`w-full rounded-md overflow-hidden ${
           availableSeats

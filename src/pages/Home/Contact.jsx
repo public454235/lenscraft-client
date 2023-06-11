@@ -8,14 +8,14 @@ import GoogleMap from "./GoogleMap";
 const Contact = () => {
   return (
     <section className="container my-24">
-      <Fade cascade triggerOnce direction="up" delay={100} damping={0.2}>
+      <Fade cascade triggerOnce direction="up" damping={0.2}>
         <SectionHeader header="Contact Form" />
         <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-12">
           Our Contact Address Here.
         </h1>
       </Fade>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <Fade triggerOnce delay={400} direction="up">
+        <Fade triggerOnce direction="up">
           <div className="w-full bg-base-200 rounded-md overflow-hidden px-8 py-10">
             <FaHeadphones className="text-5xl text-primary mb-4" />
             <h2 className="text-neutral text-xl font-semibold mb-4">
@@ -25,7 +25,7 @@ const Contact = () => {
             <p className="text-lg">+222 222 333 555</p>
           </div>
         </Fade>
-        <Fade triggerOnce delay={400} direction="up">
+        <Fade triggerOnce direction="up">
           <div className="w-full bg-base-200 rounded-md overflow-hidden px-8 py-10">
             <FiMail className="text-5xl text-primary mb-4" />
             <h2 className="text-neutral text-xl font-semibold mb-4">
@@ -36,7 +36,7 @@ const Contact = () => {
           </div>
         </Fade>
 
-        <Fade triggerOnce delay={400} direction="up">
+        <Fade triggerOnce direction="up">
           <div className="w-full bg-base-200 rounded-md overflow-hidden px-8 py-10">
             <HiOutlineLocationMarker className="text-5xl text-primary mb-4" />
             <h2 className="text-neutral text-xl font-semibold mb-4">
@@ -49,7 +49,7 @@ const Contact = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Fade triggerOnce delay={400} direction="up">
+        <Fade triggerOnce direction="up">
           <form className="space-y-5">
             <input
               type="text"
@@ -83,7 +83,7 @@ const Contact = () => {
             </button>
           </form>
         </Fade>
-        <Fade triggerOnce delay={400} direction="up">
+        <Fade triggerOnce direction="up">
           <GoogleMap />
         </Fade>
       </div>

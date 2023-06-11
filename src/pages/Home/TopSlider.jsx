@@ -20,7 +20,7 @@ const TopSlider = ({ contents }) => {
     >
       {contents.map((item) => (
         <SwiperSlide key={item._id}>
-          <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-fit lg:h-[650px] pt-8 lg:pt-0">
+          <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-max lg:h-[650px] pt-8 pb-12 lg:py-0">
             <div className="w-full lg:w-4/5 mx-auto p-6 rounded-xl bg-neutral/5">
               <img
                 src={item.image}

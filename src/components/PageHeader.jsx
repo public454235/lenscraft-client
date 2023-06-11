@@ -1,4 +1,4 @@
-import { Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import useTheme from "../hooks/useTheme";
 
 const PageHeader = ({ title, children }) => {
@@ -9,7 +9,7 @@ const PageHeader = ({ title, children }) => {
         theme === "dark" ? "page-header-dark" : "page-header-light"
       }`}
     >
-      <Zoom triggerOnce>
+      <Fade triggerOnce direction="up">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             {title}
@@ -18,7 +18,7 @@ const PageHeader = ({ title, children }) => {
             <ul>{children}</ul>
           </div>
         </div>
-      </Zoom>
+      </Fade>
     </div>
   );
 };

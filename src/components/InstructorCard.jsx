@@ -4,7 +4,7 @@ import { FiMail } from "react-icons/fi";
 const InstructorCard = ({ content }) => {
   const { name, photoURL, email } = content;
   return (
-    <Fade direction="up" delay={400} triggerOnce>
+    <Fade direction="up" triggerOnce>
       <div className="w-full relative mt-16 bg-base-200 rounded-xl pt-16 text-center p-6">
         <div className="bg-base-200 w-32 h-32 rounded-full p-2 overflow-hidden absolute z-10 top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <img
