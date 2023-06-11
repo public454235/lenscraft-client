@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import Spinner from "../../components/Spinner";
 import Contact from "./Contact";
@@ -28,6 +29,9 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Home | LensCraft</title>
+      </Helmet>
       <TopSlider contents={data?.topSlider} />
       <PopularClasses contents={data?.popularClasses} />
       <PopularInstructors contents={data?.popularInstructors} />

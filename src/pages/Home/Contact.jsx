@@ -8,7 +8,7 @@ import GoogleMap from "./GoogleMap";
 const Contact = () => {
   return (
     <section className="container my-24">
-      <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
+      <Fade cascade triggerOnce direction="up" delay={100} damping={0.2}>
         <SectionHeader header="Contact Form" />
         <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-12">
           Our Contact Address Here.
@@ -48,8 +48,8 @@ const Contact = () => {
         </Fade>
       </div>
 
-      <Fade triggerOnce delay={400}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Fade triggerOnce delay={400} direction="up">
           <form className="space-y-5">
             <input
               type="text"
@@ -82,9 +82,11 @@ const Contact = () => {
               Submit Now
             </button>
           </form>
+        </Fade>
+        <Fade triggerOnce delay={400} direction="up">
           <GoogleMap />
-        </div>
-      </Fade>
+        </Fade>
+      </div>
     </section>
   );
 };

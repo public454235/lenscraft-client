@@ -1,4 +1,5 @@
 import moment from "moment/moment";
+import { Helmet } from "react-helmet-async";
 import Spinner from "../../../components/Spinner";
 import useEnrolledClasses from "../../../hooks/useEnrolledClasses";
 
@@ -7,6 +8,9 @@ const MyEnrolledClasses = () => {
   if (isLoading) return <Spinner />;
   return (
     <div className="container my-12">
+      <Helmet>
+        <title>My Enrolled Classes | LensCraft</title>
+      </Helmet>
       <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
         My Enrolled Classes
       </h1>

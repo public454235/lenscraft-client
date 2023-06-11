@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "sweetalert2/dist/sweetalert2.min.css";
 import "swiper/css";
@@ -14,16 +15,18 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <AuthProvider>
-          <App />
-          <div>
-            <div className="rn-gradient-circle"></div>
-            <div className="rn-gradient-circle theme-pink"></div>
-          </div>
-        </AuthProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <AuthProvider>
+            <App />
+            <div>
+              <div className="rn-gradient-circle"></div>
+              <div className="rn-gradient-circle theme-pink"></div>
+            </div>
+          </AuthProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );

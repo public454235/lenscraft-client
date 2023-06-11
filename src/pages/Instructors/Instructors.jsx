@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import InstructorCard from "../../components/InstructorCard";
@@ -20,6 +21,9 @@ const Instructors = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Instructors | LensCraft</title>
+      </Helmet>
       <PageHeader title="Our Instructors">
         <li>
           <Link to="/">Home</Link>

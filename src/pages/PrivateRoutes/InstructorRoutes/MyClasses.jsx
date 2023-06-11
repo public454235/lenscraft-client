@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import Swal from "sweetalert2";
 import Spinner from "../../../components/Spinner";
@@ -18,6 +19,9 @@ const MyClasses = () => {
   if (isLoading) return <Spinner />;
   return (
     <div className="container my-12">
+      <Helmet>
+        <title>My Classes | LensCraft</title>
+      </Helmet>
       <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
         My Classes
       </h1>

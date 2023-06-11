@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -54,6 +55,9 @@ const MySelectedClasses = () => {
 
   return (
     <div className="container my-12">
+      <Helmet>
+        <title>My Selected Classes | LensCraft</title>
+      </Helmet>
       <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
         My Selected Classes
       </h1>

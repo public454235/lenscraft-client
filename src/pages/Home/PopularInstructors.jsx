@@ -5,7 +5,7 @@ import SectionHeader from "../../components/SectionHeader";
 const PopularInstructors = ({ contents }) => {
   return (
     <section className="container my-24">
-      <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
+      <Fade cascade triggerOnce direction="up" delay={100} damping={0.2}>
         <SectionHeader header="Popular Instructors" />
         <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-4">
           Meet Our Expert Instructors

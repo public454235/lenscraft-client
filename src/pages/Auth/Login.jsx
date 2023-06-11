@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
 import { HiArrowLongRight } from "react-icons/hi2";
@@ -45,6 +46,9 @@ const Login = () => {
 
   return (
     <div className="container my-20">
+      <Helmet>
+        <title>Login | LensCraft</title>
+      </Helmet>
       <div className="max-w-2xl mx-auto">
         <form onSubmit={handleSubmit(onSubmit)} className="">
           <h1 className="text-3xl md:text-4xl font-bold text-neutral mb-8 text-center">

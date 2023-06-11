@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import ClassCard from "../../components/ClassCard";
@@ -20,6 +21,9 @@ const Classes = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Classes | LensCraft</title>
+      </Helmet>
       <PageHeader title="Our Classes">
         <li>
           <Link to="/">Home</Link>

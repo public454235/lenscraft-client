@@ -1,5 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
 
@@ -10,6 +11,9 @@ const Payment = () => {
 
   return (
     <div className="container my-12">
+      <Helmet>
+        <title>Payment | LensCraft</title>
+      </Helmet>
       <h1 className="text-3xl font-bold gradient-text w-fit mx-auto mb-12">
         Purchase Course
       </h1>

@@ -5,7 +5,7 @@ import SectionHeader from "../../components/SectionHeader";
 const PopularClasses = ({ contents }) => {
   return (
     <section className="container my-24">
-      <Fade cascade triggerOnce direction="up" delay={100} damping={0.3}>
+      <Fade cascade triggerOnce direction="up" delay={100} damping={0.2}>
         <SectionHeader header="Popular Classes" />
         <h1 className="text-neutral font-bold text-4xl md:text-5xl text-center mb-4">
           Welcome to LensCraft
