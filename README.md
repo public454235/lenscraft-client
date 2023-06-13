@@ -20,7 +20,7 @@ You can access a live demo here -> [LensCraft](https://lenscraft-sam.web.app/)
 
 ## Server Side Repository
 
-Click here for the server side repo -> [LensCraft Server Side Repository](https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-showkatali-dev)
+Click here for the server side repo -> [LensCraft Server Side Repository](https://github.com/showkatali-dev/lenscraft-server)
 
 ## Used packages/ technology
 
